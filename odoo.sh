@@ -35,7 +35,7 @@ function update_script() {
     rm -f /opt/python3-lxml-html-clean.deb
   fi
 
-  RELEASE=$(curl -fsSL https://nightly.odoo.com/ | grep -oE 'href="[0-9]+\.[0-9]+/nightly"' | head -n1 | cut -d'"' -f2 | cut -d/ -f1)
+  RELEASE="18.0"
   LATEST_VERSION=$(curl -fsSL "https://nightly.odoo.com/${RELEASE}/nightly/deb/" |
     grep -oP "odoo_${RELEASE}\.\d+_all\.deb" |
     sed -E "s/odoo_(${RELEASE}\.[0-9]+)_all\.deb/\1/" |
